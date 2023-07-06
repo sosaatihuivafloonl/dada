@@ -1,8 +1,8 @@
 from fastapi import Depends, APIRouter, Request
-from sqlalchemy.orm import Session
-from fastapi import Depends
-from database.connection import get_db
-from models.userModel import User
+# from sqlalchemy.orm import Session
+# from fastapi import Depends
+# from database.connection import get_db
+# from models.userModel import User
 
 
 
@@ -15,14 +15,14 @@ userRouter = APIRouter()
 async def get_test():
     return "message: hello!"
 
-# Функция для создания пользователя
-@userRouter.post("/user")
-def create_user(target_username: str, db: Session = Depends(get_db)):
-    user = User(product_id='2321321321',target_username=target_username)
-    db.add(user)
-    db.commit()
-    db.refresh(user)
-    return user
+# # Функция для создания пользователя
+# @userRouter.post("/user")
+# def create_user(target_username: str, db: Session = Depends(get_db)):
+#     user = User(product_id='2321321321',target_username=target_username)
+#     db.add(user)
+#     db.commit()
+#     db.refresh(user)
+#     return user
 
 
 # Пример использования
